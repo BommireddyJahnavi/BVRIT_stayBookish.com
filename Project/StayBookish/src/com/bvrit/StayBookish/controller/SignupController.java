@@ -24,12 +24,13 @@ protected void doProcess(HttpServletRequest request, HttpServletResponse respons
 		String password = request.getParameter("password");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
+		String address = request.getParameter("address");
 		
 		//create object of UserDAO
 		UserDAO udao = new UserDAO();
 		
 		//call signup()
-		boolean result = udao.signup(user, password,phone,email);
+		boolean result = udao.signup(user, password,phone,email,address);
 		
 		//redirect control to next page based on decision
 		if(result){

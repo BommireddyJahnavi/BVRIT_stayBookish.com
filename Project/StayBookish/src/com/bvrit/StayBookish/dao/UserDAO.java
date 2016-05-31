@@ -20,10 +20,10 @@ public class UserDAO {
 		
 		con = cdao.getConnection();
 	}
-	public boolean signup(String user,String password,String phone,String email)
+	public boolean signup(String user,String password,String phone,String email, String address)
 	throws ClassNotFoundException,SQLException{
 		boolean result = false;
-		pst = con.prepareStatement("insert into user values('"+user+"','"+password+"','"+phone+"','"+email+"')");
+		pst = con.prepareStatement("insert into user(user,password,phone,email,address) values('"+user+"','"+password+"','"+phone+"','"+email+"','"+address+"')");
 		int ans = pst.executeUpdate();
 		if(ans>0){
 			result = true;
@@ -34,7 +34,7 @@ public class UserDAO {
 			throws ClassNotFoundException,SQLException{
 				boolean result = false;
 				//System.out.println("1.1");
-				pst = con.prepareStatement("select * from user where username ='"+user+"'and password = '"+password+"'");
+				pst = con.prepareStatement("select * from user where user ='"+user+"'and password = '"+password+"'");
 				//System.out.println("1.2");
 				ResultSet rs = pst.executeQuery();
 				if(rs.next()){

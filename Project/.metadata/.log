@@ -1,0 +1,16 @@
+!SESSION 2016-05-31 13:47:34.686 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.7.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -data /home/ubuntu/Documents/git_demo/myRepo/Project -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui.navigator.resources 4 0 2016-05-31 13:54:00.203
+!MESSAGE Could not acquire INavigatorContentService: Project Explorer not found.
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2016-05-31 13:57:21.213
+!MESSAGE cacheFile=file:/home/ubuntu/Desktop/eclipse%20(3)/configuration/org.eclipse.wst.server.discovery/serverAdapterSitesDetails.xml
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2016-05-31 14:00:00.671
+!MESSAGE cacheFile=file:/home/ubuntu/Desktop/eclipse%20(3)/configuration/org.eclipse.wst.server.discovery/serverAdapterSitesDetails.xml

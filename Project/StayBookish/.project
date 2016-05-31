@@ -3,7 +3,6 @@
 	<name>StayBookish</name>
 	<comment></comment>
 	<projects>
-		<project>mysql-connector-java-5.1.39-bin</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
