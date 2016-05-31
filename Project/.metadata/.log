@@ -14,3 +14,25 @@ Command-line arguments:  -data /home/ubuntu/Documents/git_demo/myRepo/Project -o
 
 !ENTRY org.eclipse.wst.server.discovery 1 0 2016-05-31 14:00:00.671
 !MESSAGE cacheFile=file:/home/ubuntu/Desktop/eclipse%20(3)/configuration/org.eclipse.wst.server.discovery/serverAdapterSitesDetails.xml
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2016-05-31 14:33:08.290
+!MESSAGE cacheFile=file:/home/ubuntu/Desktop/eclipse%20(3)/configuration/org.eclipse.wst.server.discovery/serverAdapterSitesDetails.xml
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2016-05-31 15:26:11.016
+!MESSAGE Removing obsolete files from server...
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2016-05-31 15:26:11.016
+!MESSAGE Could not clean server of obsolete files: FWK005 parse may not be called while parsing.
+!STACK 0
+org.xml.sax.SAXException: FWK005 parse may not be called while parsing.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:271)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:338)
+	at org.eclipse.jst.server.tomcat.core.internal.xml.Factory.loadDocument(Factory.java:88)
+	at org.eclipse.jst.server.tomcat.core.internal.TomcatVersionHelper.getCatalinaServerInstance(TomcatVersionHelper.java:215)
+	at org.eclipse.jst.server.tomcat.core.internal.TomcatVersionHelper.cleanupCatalinaServer(TomcatVersionHelper.java:302)
+	at org.eclipse.jst.server.tomcat.core.internal.Tomcat70Configuration.cleanupServer(Tomcat70Configuration.java:701)
+	at org.eclipse.jst.server.tomcat.core.internal.TomcatServerBehaviour.publishServer(TomcatServerBehaviour.java:233)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:975)
+	at org.eclipse.wst.server.core.model.ServerBehaviourDelegate.publish(ServerBehaviourDelegate.java:774)
+	at org.eclipse.wst.server.core.internal.Server.publishImpl(Server.java:3172)
+	at org.eclipse.wst.server.core.internal.Server$PublishJob.run(Server.java:345)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
