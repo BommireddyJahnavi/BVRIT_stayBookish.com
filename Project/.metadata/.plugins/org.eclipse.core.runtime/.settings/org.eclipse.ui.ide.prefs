@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 platformState=1464673224246
+=======
+PROBLEMS_FILTERS_MIGRATE=true
+eclipse.preferences.version=1
+platformState=1464064598393
+>>>>>>> branch 'master' of https://github.com/BommireddyJahnavi/BVRIT_stayBookish.com.git
 quickStart=false
 tipsAndTricks=true
