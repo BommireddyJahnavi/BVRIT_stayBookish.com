@@ -53,7 +53,7 @@
         <label for="Phone">Phone:</label>
         </div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="phone" placeholder="Enter phone no.">
+        <input type="tel" class="form-control" name="phone" placeholder="Enter phone no." required>
         </div>
         </div>
         <br><br><div class="form-group">

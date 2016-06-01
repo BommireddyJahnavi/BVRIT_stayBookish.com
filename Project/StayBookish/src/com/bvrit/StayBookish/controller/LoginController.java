@@ -32,8 +32,8 @@ public class LoginController extends HttpServlet {protected void doProcess(HttpS
 		
 			session.setAttribute("user", user);
 		//redirect control to next page based on decision
-      // AddressBookLog log = new AddressBookLog();
-	   //log.write(user);
+       StayBookishLog log = new StayBookishLog();
+	   log.write(user);
 		if(result){
 			System.out.println("result");
 			

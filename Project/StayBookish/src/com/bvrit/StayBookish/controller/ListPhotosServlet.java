@@ -20,13 +20,24 @@ public class ListPhotosServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
               Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/photodb", "root", "root");
-            PreparedStatement ps = con.prepareStatement("select * from books");
+            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.1.89:3306/book", "root", "root");
+            PreparedStatement ps = con.prepareStatement("select * from book");
             ResultSet rs = ps.executeQuery();
             out.println("<h1>Photos</h1>");
             while ( rs.next()) {
+                  out.println("<h4>" + rs.getString("bid") + "</h4>");
+                  out.println("<h4>" + rs.getString("bname") + "</h4>");
+                  out.println("<h4>" + rs.getString("author") + "</h4>");
+                  out.println("<h4>" + rs.getString("edition") + "</h4>");
+                  out.println("<h4>" + rs.getString("year") + "</h4>");
+                  out.println("<h4>" + rs.getString("price") + "</h4>");
+                  out.println("<h4>" + rs.getString("status") + "</h4>");
+                  out.println("<h4>" + rs.getString("quatity") + "</h4>");
+                  out.println("<h4>" + rs.getString("user") + "</h4>");
                   out.println("<h4>" + rs.getString("phototitle") + "</h4>");
-                  out.println("<img width='600' height='600' src=./DisplayPhotoServlet?id=" +  rs.getString("photoid") + "></img> <p/>");
+                  out.println("<h4>" + rs.getString("photo") + "</h4>");
+                  
+                  out.println("<img width='600' height='600' src=./DisplayPhotoServlet?id=" +  rs.getString("bid") + "></img> <p/>");
             }
 
             con.close();

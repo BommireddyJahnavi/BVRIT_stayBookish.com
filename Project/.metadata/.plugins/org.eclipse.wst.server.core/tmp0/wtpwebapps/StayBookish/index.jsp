@@ -80,7 +80,7 @@
         <li class="active"><a href="index.jsp">Home</a></li>
         
         <li><a href="#">Books</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#">Sell</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="loginView.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -90,6 +90,11 @@
 </nav>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<form id="searchbox" action="">
+    <input id="search" type="text" placeholder="Enter author here">
+   
+    <input type="submit" id="submit"  class="btn btn-info" value="Search">
+</form> 
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -112,11 +117,7 @@
         </div>      
       </div>
     </div>
-       <form id="searchbox" action="">
-    <input id="search" type="text" placeholder="Enter author here">
-   
-    <input type="submit" id="submit"  class="btn btn-info" value="Search">
-</form> 
+     
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

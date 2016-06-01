@@ -54,4 +54,14 @@
     <servlet-name>ListPhotosServlets</servlet-name>
     <url-pattern>/listphotos</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StayBookishLog</display-name>
+    <servlet-name>StayBookishLog</servlet-name>
+    <servlet-class>com.bvrit.StayBookish.controller.StayBookishLog</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StayBookishLog</servlet-name>
+    <url-pattern>/staybookish</url-pattern>
+  </servlet-mapping>
 </web-app>

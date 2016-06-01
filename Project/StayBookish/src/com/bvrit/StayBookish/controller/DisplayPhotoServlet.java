@@ -20,7 +20,7 @@ public class DisplayPhotoServlet extends HttpServlet {
 
         try {
              Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/photodb", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.1.89:3306/book", "root", "root");
             PreparedStatement ps = con.prepareStatement("select photo from book where bid = ?");
             String id = request.getParameter("id");
             ps.setString(1,id);

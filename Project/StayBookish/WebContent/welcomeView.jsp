@@ -80,8 +80,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="welcomeView.jsp">Home</a></li>
-        
         <li><a href="#">Books</a></li>
+        <li><a href="#">Sell</a></li>
        
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -90,6 +90,7 @@
     </div>
   </div>
 </nav>
+ 
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -97,6 +98,11 @@
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
     </ol>
+<form id="searchbox" action="">
+    <input id="search" type="text" placeholder="Enter author here">
+   
+    <input type="submit" id="submit"  class="btn btn-info" value="Search">
+</form> 
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
@@ -114,11 +120,7 @@
         </div>      
       </div>
     </div>
-       <form id="searchbox" action="">
-    <input id="search" type="text" placeholder="Enter author here">
-   
-    <input type="submit" id="submit"  class="btn btn-info" value="Search">
-</form> 
+     
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

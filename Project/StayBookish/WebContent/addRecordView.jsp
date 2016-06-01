@@ -69,11 +69,22 @@
         <div class="col-md-4">
         <label for="Email">Publisher:</label>
         </div>
+        <br><br>
         <div class="col-md-8">
         <input type="text" class="form-control" name="publisher" placeholder="Enter publisher">
         </div>
         </div>
+        <div class="form-group">
+        <div class="col-md-4">
+        <label for="Email">Year:</label>
+        </div>
         
+        <div class="col-md-8">
+        <input type="text" class="form-control" name="year" placeholder="Enter year">
+        </div>
+        </div>
+        
+        <br><br>
         <br><br>
         <div class="form-group">
         <div class="col-md-4">
