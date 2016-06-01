@@ -9,7 +9,6 @@ INDEX VERSION 1.127+/home/hari/Documents/BVRIT_14_projects/BVRIT_stayBookish.com
 1787324861.index
 1198206356.index
 3829351191.index
-713521612.index
 4025426870.index
 3309173741.index
 2296516285.index

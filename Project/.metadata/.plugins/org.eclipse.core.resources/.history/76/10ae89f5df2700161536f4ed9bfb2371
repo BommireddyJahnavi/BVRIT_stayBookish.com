@@ -60,7 +60,8 @@ public class AddPhotoServlet extends HttpServlet {
             String   bname =  fileItem.getString();
                      
             fileItem = (FileItem) items.get(1);
-            String author =  fileItem.getString();            
+            String author =  fileItem.getString();
+            
             
             fileItem = (FileItem) items.get(3);
             String edition =  fileItem.getString();
