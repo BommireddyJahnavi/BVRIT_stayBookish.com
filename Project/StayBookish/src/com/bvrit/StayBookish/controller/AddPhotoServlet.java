@@ -40,16 +40,7 @@ public class AddPhotoServlet extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String bname = request.getParameter("bname2");
-      System.out.println(request.getParameter("bname2"));
-        String author = request.getParameter("author");
-        String edition = request.getParameter("edition");
-        String publisher = request.getParameter("publisher");
-        String price = request.getParameter("price");
-        
-        System.out.println(bname);
-        out.println(bname);
-        
+
         try {
         	Connection con;
         	ConnectionDAO cdao;
@@ -64,20 +55,26 @@ public class AddPhotoServlet extends HttpServlet {
 
             // parse request
             List items = sfu.parseRequest(request);
-           // FileItem  id = (FileItem) items.get(0);
-           // String photoid =  id.getString();
-
-            FileItem title = (FileItem) items.get(0);
-            String   phototitle =  title.getString();
-            
-//            System.out.println(phototitle + "------");
-
-            // get uploaded file
-            FileItem file = (FileItem) items.get(1);
-            
-            
            
-
+            FileItem fileItem = (FileItem) items.get(0);
+            String   bname =  fileItem.getString();
+                     
+            fileItem = (FileItem) items.get(1);
+            String author =  fileItem.getString();
+            
+            
+            fileItem = (FileItem) items.get(3);
+            String edition =  fileItem.getString();
+            
+            fileItem = (FileItem) items.get(4);
+            String publisher =  fileItem.getString();
+            
+            fileItem = (FileItem) items.get(5);
+            float price = Float.parseFloat(fileItem.getString());
+            
+            // get uploaded file
+            FileItem image = (FileItem) items.get(2);
+            
             // Connect to Oracle
             //Will work only in mysql as mysql is having longblob datatype
             cdao = new ConnectionDAO();
@@ -85,9 +82,9 @@ public class AddPhotoServlet extends HttpServlet {
     		con = cdao.getConnection();
 
             PreparedStatement ps = con.prepareStatement("insert into book(bname,author,edition,publisher,price,phototitle,photo) values('"+bname+"','"+author+"','"+edition+"','"+publisher+"',"+price+",?,?)");
-            ps.setString(1, phototitle);
+            ps.setString(1, bname);
             // size must be converted to int otherwise it results in error
-            ps.setBinaryStream(2, file.getInputStream(), (int) file.getSize());
+            ps.setBinaryStream(2, image.getInputStream(), (int) image.getSize());
             ps.executeUpdate();
             con.close();
             out.println("Book Added Successfully.");

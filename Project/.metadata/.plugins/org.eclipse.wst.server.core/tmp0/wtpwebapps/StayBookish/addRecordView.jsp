@@ -29,13 +29,13 @@
         <div id="p" class="container">
         <h1 id="index"> Books </h1><br><br>
         <div class="row">
-        <form id="form1" enctype="multipart/form-data" action="addphoto" method="post" class="col-md-4 col-md-offset-4">
+        <form id="form1" enctype="multipart/form-data" action="addphoto"  method = "post">
         <div class="form-group">
         <div class="col-md-4">
         <label for="Name">Book Name:</label>
         </div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="bname2" placeholder="Enter name">
+        <input type="text" class="form-control" name="bname" placeholder="Enter name">
         </div>
         </div>
         <br><br>
