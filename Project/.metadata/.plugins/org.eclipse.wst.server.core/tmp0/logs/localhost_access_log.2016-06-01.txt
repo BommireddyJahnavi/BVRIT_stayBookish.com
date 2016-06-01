@@ -97,3 +97,5 @@
 127.0.0.1 - - [01/Jun/2016:12:39:24 +0530] "GET / HTTP/1.1" 404 951
 127.0.0.1 - - [01/Jun/2016:12:39:25 +0530] "GET /StayBookish/addRecordView.jsp HTTP/1.1" 200 3134
 127.0.0.1 - - [01/Jun/2016:12:40:11 +0530] "POST /StayBookish/addphoto HTTP/1.1" 200 30
+127.0.0.1 - - [01/Jun/2016:13:59:57 +0530] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [01/Jun/2016:13:59:57 +0530] "GET /StayBookish/addRecordView.jsp HTTP/1.1" 200 3134
