@@ -21,7 +21,7 @@ public class ListPhotosServlet extends HttpServlet {
         try {
               Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/photodb", "root", "root");
-            PreparedStatement ps = con.prepareStatement("select * from photos");
+            PreparedStatement ps = con.prepareStatement("select * from books");
             ResultSet rs = ps.executeQuery();
             out.println("<h1>Photos</h1>");
             while ( rs.next()) {

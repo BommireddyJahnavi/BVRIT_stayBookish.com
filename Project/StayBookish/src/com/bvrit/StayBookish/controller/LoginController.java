@@ -35,6 +35,7 @@ public class LoginController extends HttpServlet {protected void doProcess(HttpS
       // AddressBookLog log = new AddressBookLog();
 	   //log.write(user);
 		if(result){
+			System.out.println("result");
 			
 			response.sendRedirect("welcomeView.jsp");
 			//request.getAttribute("Invalid login credentials");

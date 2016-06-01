@@ -80,7 +80,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="welcomeView.jsp">Home</a></li>
-        <li><a href="aboutView.jsp">About</a></li>
+        
         <li><a href="#">Books</a></li>
        
       </ul>

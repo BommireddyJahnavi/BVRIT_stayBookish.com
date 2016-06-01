@@ -21,13 +21,13 @@ public class DisplayPhotoServlet extends HttpServlet {
         try {
              Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/photodb", "root", "root");
-            PreparedStatement ps = con.prepareStatement("select photo from photos where photoid = ?");
+            PreparedStatement ps = con.prepareStatement("select photo from book where bid = ?");
             String id = request.getParameter("id");
             ps.setString(1,id);
             ResultSet rs = ps.executeQuery();
             rs.next();
             Blob  b = rs.getBlob("photo");
-            response.setContentType("image/jpeg");
+            response.setContentType("image/jpg");
             response.setContentLength( (int) b.length());
             InputStream is = b.getBinaryStream();
             OutputStream os = response.getOutputStream();

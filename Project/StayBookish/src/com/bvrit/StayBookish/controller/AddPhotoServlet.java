@@ -1,9 +1,10 @@
+package com.bvrit.StayBookish.controller;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
-package com.bvrit.StayBookish.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,12 +20,39 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.bvrit.StayBookish.dao.ConnectionDAO;
+
 public class AddPhotoServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+		    throws ServletException, IOException {
+		doProcess(request, response);
+		
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		    throws ServletException, IOException {
+		doProcess(request, response);
+		
+	}
+	
+	
+    protected void doProcess(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        String bname = request.getParameter("bname2");
+      System.out.println(request.getParameter("bname2"));
+        String author = request.getParameter("author");
+        String edition = request.getParameter("edition");
+        String publisher = request.getParameter("publisher");
+        String price = request.getParameter("price");
+        
+        System.out.println(bname);
+        out.println(bname);
+        
         try {
+        	Connection con;
+        	ConnectionDAO cdao;
             // Apache Commons-Fileupload library classes
             DiskFileItemFactory factory = new DiskFileItemFactory();
             ServletFileUpload sfu  = new ServletFileUpload(factory);
@@ -36,30 +64,33 @@ public class AddPhotoServlet extends HttpServlet {
 
             // parse request
             List items = sfu.parseRequest(request);
-            FileItem  id = (FileItem) items.get(0);
-            String photoid =  id.getString();
+           // FileItem  id = (FileItem) items.get(0);
+           // String photoid =  id.getString();
 
-            FileItem title = (FileItem) items.get(1);
+            FileItem title = (FileItem) items.get(0);
             String   phototitle =  title.getString();
+            
+//            System.out.println(phototitle + "------");
 
             // get uploaded file
-            FileItem file = (FileItem) items.get(2);
+            FileItem file = (FileItem) items.get(1);
+            
+            
+           
 
             // Connect to Oracle
             //Will work only in mysql as mysql is having longblob datatype
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://192.168.1.89:3306/staybookish_db", "bvrith14", "bvrith");
-            con.setAutoCommit(false);
+            cdao = new ConnectionDAO();
+    		
+    		con = cdao.getConnection();
 
-            PreparedStatement ps = con.prepareStatement("insert into photos values(?,?,?)");
-            ps.setString(1, photoid);
-            ps.setString(2, phototitle);
+            PreparedStatement ps = con.prepareStatement("insert into book(bname,author,edition,publisher,price,phototitle,photo) values('"+bname+"','"+author+"','"+edition+"','"+publisher+"',"+price+",?,?)");
+            ps.setString(1, phototitle);
             // size must be converted to int otherwise it results in error
-            ps.setBinaryStream(3, file.getInputStream(), (int) file.getSize());
+            ps.setBinaryStream(2, file.getInputStream(), (int) file.getSize());
             ps.executeUpdate();
-            con.commit();
             con.close();
-            out.println("Proto Added Successfully. <p> <a href='./ListPhotosServlet'>List Photos </a>");
+            out.println("Book Added Successfully.");
         }
         catch(Exception ex) {
             out.println( "Error --> " + ex.getMessage());
