@@ -23,6 +23,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.bvrit.StayBookish.dao.ConnectionDAO;
 public class AddPhotoServlet extends HttpServlet {
+<<<<<<< HEAD
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
 throws ServletException, IOException {
 doProcess(request, response);
@@ -80,4 +81,75 @@ catch(Exception ex) {
 out.println( "Error --> " + ex.getMessage());
 }
 }
+=======
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+		    throws ServletException, IOException {
+		doProcess(request, response);
+		
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		    throws ServletException, IOException {
+		doProcess(request, response);
+		
+	}
+	
+	
+    protected void doProcess(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
+        try {
+        	Connection con;
+        	ConnectionDAO cdao;
+            // Apache Commons-Fileupload library classes
+            DiskFileItemFactory factory = new DiskFileItemFactory();
+            ServletFileUpload sfu  = new ServletFileUpload(factory);
+
+            if (! ServletFileUpload.isMultipartContent(request)) {
+                System.out.println("sorry. No file uploaded");
+                return;
+            }
+
+            // parse request
+            List items = sfu.parseRequest(request);
+           
+            FileItem fileItem = (FileItem) items.get(0);
+            String   bname =  fileItem.getString();
+                     
+            fileItem = (FileItem) items.get(1);
+            String author =  fileItem.getString();            
+            
+            fileItem = (FileItem) items.get(3);
+            String edition =  fileItem.getString();
+            
+            fileItem = (FileItem) items.get(4);
+            String publisher =  fileItem.getString();
+            
+            fileItem = (FileItem) items.get(5);
+            float price = Float.parseFloat(fileItem.getString());
+            
+            // get uploaded file
+            FileItem image = (FileItem) items.get(2);
+            
+            // Connect to Oracle
+            //Will work only in mysql as mysql is having longblob datatype
+            cdao = new ConnectionDAO();
+    		
+    		con = cdao.getConnection();
+
+            PreparedStatement ps = con.prepareStatement("insert into book(bname,author,edition,publisher,price,phototitle,photo) values('"+bname+"','"+author+"','"+edition+"','"+publisher+"',"+price+",?,?)");
+            ps.setString(1, bname);
+            // size must be converted to int otherwise it results in error
+            ps.setBinaryStream(2, image.getInputStream(), (int) image.getSize());
+            ps.executeUpdate();
+            con.close();
+            out.println("Book Added Successfully.");
+        }
+        catch(Exception ex) {
+            out.println( "Error --> " + ex.getMessage());
+        }
+    }
+>>>>>>> 8c5489b048c2fb4578f25f99924dcef646a4ee0f
 }

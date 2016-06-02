@@ -60,13 +60,17 @@
         <div id="p" class="container">
         <h1 id="index"> Books </h1><br><br>
         <div class="row">
-        <form id="form1" enctype="multipart/form-data" action="addphoto" method="post" class="col-md-4 col-md-offset-4">
+        <form id="form1" enctype="multipart/form-data" action="addphoto"  method = "post">
         <div class="form-group">
         <div class="col-md-4">
         <label for="Name">Book Name:</label>
         </div>
         <div class="col-md-8">
+<<<<<<< HEAD
         <input type="text" class="form-control" name="bname2" placeholder="Enter name" required>
+=======
+        <input type="text" class="form-control" name="bname" placeholder="Enter name">
+>>>>>>> 8c5489b048c2fb4578f25f99924dcef646a4ee0f
         </div>
         </div>
         <br><br>
