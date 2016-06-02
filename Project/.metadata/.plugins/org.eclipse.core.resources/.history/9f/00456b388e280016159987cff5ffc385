@@ -1,0 +1,152 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ page import="com.bvrit.StayBookish.dao.BookDAO" %>
+<%@page import="com.bvrit.StayBookish.dao.BookPojo"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet"
+href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript"
+src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript"
+src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+  <style>
+  <% String user = (String)session.getAttribute("user");%>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+   
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+  #searchbox
+{
+    background-color: #eaf8fc;
+    background-image: linear-gradient(#fff, #d4e8ec);
+    border-radius: 35px;   
+    border-width: 5px;
+    border-style: solid;
+    border-color: #c4d9df #a4c3ca #83afb7;           
+    width: 700px;
+    height: 70px;
+    padding: 10px;
+    margin: 100px auto 50px;
+    overflow: hidden; /* Clear floats */
+}
+#search{
+    width:550px;
+    height:40px;
+   
+    }
+  </style>
+</head>
+<body>
+<div class="jumbotron">
+  <div>
+  <center><img src = "logo.png"></center>
+  </div>
+  <div class="container text-center">
+    <h1>STAY BOOKISH</h1>     
+    <p>You Request We Sell</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                       
+      </button>
+     
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="welcomeView.jsp">Home</a></li>
+       
+        <li><a href="ListPhotosServlet">Books</a></li>
+        <li><a href="addRecordView.jsp">Sell</a></li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href = "#"><%=user %></a></li>
+        <li class="active"><a href = "logout.jsp">logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<h2 align="center">Books</h2>
+ </div>
+
+<div class="table-responsive">
+<table id="myTable" class="table table-striped" width="100%" >
+
+  <thead valign="bottom">
+       <th align="center">Book</th>
+       <th align="center" data-sortable="true">Name</th>
+       <th align="center" data-sortable="true">Author</th>
+       <th align="center" data-sortable="true">Edition</th>
+       <th align="center" data-sortable="true">Publisher</th>
+       <th align="center" data-sortable="true">Course</th>
+       <th data-sortable="true">Price</th>
+       <th data-sortable="true">Status</th>
+       <th data-sortable="true">Quantity</th>
+       <th>Buy</th>
+   </thead>
+   <tbody>
+<%
+BookDAO rdao = new BookDAO();
+ArrayList<BookPojo> list = rdao.getAllBooks();
+for(BookPojo book : list) {%>
+  <tr valign="top">
+       <td><img width='150' height='200' src=displayphoto?bid=<%=book.getBid()%>></td>
+       <td align="center"><%=book.getBname()%></td>
+       <td align="center"><%=book.getAuthor()%></td>
+       <td align="center"><%=book.getEdition()%></td>
+       <td align="center"><%=book.getPublisher()%></td>
+       <td align="center"><%=book.getYear()%></td>
+       <td align="center"><%=book.getPrice()%></td>
+       <td align="center"><%=book.getStatus()%></td>
+       <td align="center"><%=book.getQuantity()%></td>
+       <td align="center"><a href="">Buy</a></td>
+   
+  </tr>
+<% }%>
+ </tbody>
+</table>
+</div>
+</body>
+</html>
+

@@ -154,3 +154,7 @@
 127.0.0.1 - - [01/Jun/2016:20:34:00 +0530] "GET / HTTP/1.1" 404 951
 127.0.0.1 - - [01/Jun/2016:20:34:01 +0530] "GET /StayBookish/welcomeView.jsp HTTP/1.1" 200 4049
 127.0.0.1 - - [01/Jun/2016:20:34:07 +0530] "GET /StayBookish/logo.png HTTP/1.1" 304 -
+127.0.0.1 - - [01/Jun/2016:21:26:04 +0530] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [01/Jun/2016:21:26:05 +0530] "GET /StayBookish/signupView.jsp HTTP/1.1" 200 2909
+127.0.0.1 - - [01/Jun/2016:21:28:42 +0530] "POST /StayBookish/signup HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2016:21:31:54 +0530] "POST /StayBookish/signup HTTP/1.1" 200 -

@@ -9,13 +9,18 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 import com.bvrit.StayBookish.dao.ConnectionDAO;
 public class AddPhotoServlet extends HttpServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -33,6 +38,8 @@ PrintWriter out = response.getWriter();
 try {
 Connection con;
 ConnectionDAO cdao;
+HttpSession session = request.getSession(true);
+String user = (String) session.getAttribute("user");
 // Apache Commons-Fileupload library classes
 DiskFileItemFactory factory = new DiskFileItemFactory();
 ServletFileUpload sfu = new ServletFileUpload(factory);
@@ -60,13 +67,14 @@ FileItem image = (FileItem) items.get(2);
 //Will work only in mysql as mysql is having longblob datatype
 cdao = new ConnectionDAO();
 con = cdao.getConnection();
-PreparedStatement ps = con.prepareStatement("insert into book(bname,author,edition,publisher,year,price,phototitle,photo) values('"+bname+"','"+author+"','"+edition+"','"+publisher+"','"+year+"',"+price+",?,?)");
+PreparedStatement ps = con.prepareStatement("insert into book(bname,author,edition,publisher,year,price,user,phototitle,photo) values('"+bname+"','"+author+"','"+edition+"','"+publisher+"','"+year+"',"+price+",'"+user+"',?,?)");
 ps.setString(1, bname);
 // size must be converted to int otherwise it results in error
 ps.setBinaryStream(2, image.getInputStream(), (int) image.getSize());
 ps.executeUpdate();
 con.close();
-out.println("Book Added Successfully.");
+
+response.sendRedirect("welcomeView.jsp");
 }
 catch(Exception ex) {
 out.println( "Error --> " + ex.getMessage());

@@ -3,11 +3,12 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content=cwidth=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <style>
+  <% String user = (String)session.getAttribute("user");%>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -57,7 +58,7 @@
 
 
 <div class="jumbotron">
- <div>
+  <div>
   <center><img src = "logo.png"></center>
   </div>
   <div class="container text-center">
@@ -73,28 +74,32 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
-      </button>    
+      </button>
+      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.jsp">Home</a></li>
+        <li class="active"><a href="welcomeView.jsp">Home</a></li>
         
-        <li><a href="#">Books</a></li>
-        <li><a href="#">Sell</a></li>
+        <li><a href="bookView.jsp">Books</a></li>
+        <li><a href="addRecordView.jsp">Sell</a></li>
+       
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+       <% if(user != null){ %>
+         <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href=" ">Welcome <%=user %></a></li>
+             <li ><a href="loginView.jsp">Logout</a></li>
+         </ul>
+      <% }else{ %>
+        <ul class="nav navbar-nav navbar-right">
         <li><a href="loginView.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
+      <%} %> 
     </div>
   </div>
 </nav>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-<form id="searchbox" action="">
-    <input id="search" type="text" placeholder="Enter author here">
-   
-    <input type="submit" id="submit"  class="btn btn-info" value="Search">
-</form> 
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -106,7 +111,7 @@
       <div class="item active">
         <img src="http://www.bookicious.com/img/bk.jpg" style = "height:600px ; width: 1200px;alt="Image">
         <div class="carousel-caption">
-          
+         
         </div>      
       </div>
 
@@ -117,7 +122,7 @@
         </div>      
       </div>
     </div>
-     
+      
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -137,3 +142,5 @@
 
 </body>
 </html>
+
+

@@ -26,6 +26,37 @@
     </style>
     </head>
     <body id="index" style="background-color: #333333;">
+        <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="welcomeView.jsp">Home</a></li>
+        <li><a href="bookView.jsp">Books</a></li>
+        <li class="active"><a href="addRecordView.jsp">Sell</a></li>
+       </ul>
+       <% String user = (String)session.getAttribute("user");%>
+       <%if(user != null){ %>
+         <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="">Welcome <%=user %></a></li>
+             <li ><a href="logout.jsp">Logout</a></li>
+         </ul>
+      <% }else{ %>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="loginView.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      <%} %> 
+      
+       
+       
+       </div></div></nav>
         <div id="p" class="container">
         <h1 id="index"> Books </h1><br><br>
         <div class="row">
@@ -35,7 +66,7 @@
         <label for="Name">Book Name:</label>
         </div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="bname2" placeholder="Enter name">
+        <input type="text" class="form-control" name="bname2" placeholder="Enter name" required>
         </div>
         </div>
         <br><br>
@@ -44,7 +75,7 @@
         <label for="Password">Author:</label>
         </div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="author" placeholder="Enter Author name">
+        <input type="text" class="form-control" name="author" placeholder="Enter Author name" required>
         </div>
         </div>
         <br><br>
@@ -53,7 +84,7 @@
         <label for="Password">Image:</label>
         </div>
         <div class="col-md-8">
-        <input type="file" class="form-control" name="photo">
+        <input type="file" class="form-control" name="photo" required>
         </div>
         </div>
         <br><br>
@@ -62,36 +93,34 @@
         <label for="Phone">Edition:</label>
         </div>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="edition" placeholder="Enter edition">
+        <input type="text" class="form-control" name="edition" placeholder="Enter edition" required>
         </div>
         </div>
         <br><br><div class="form-group">
         <div class="col-md-4">
         <label for="Email">Publisher:</label>
         </div>
-        <br><br>
         <div class="col-md-8">
-        <input type="text" class="form-control" name="publisher" placeholder="Enter publisher">
+        <input type="text" class="form-control" name="publisher" placeholder="Enter publisher" required>
         </div>
+      
         </div>
+          <br><br>
         <div class="form-group">
         <div class="col-md-4">
         <label for="Email">Year:</label>
         </div>
-        
         <div class="col-md-8">
-        <input type="text" class="form-control" name="year" placeholder="Enter year">
+        <input type="text" class="form-control" name="year" placeholder="Enter year" required>
         </div>
         </div>
-        
-        <br><br>
         <br><br>
         <div class="form-group">
         <div class="col-md-4">
         <label for="address">Price:</label>
         </div>
         <div class="col-md-8">
-         <input type="number" class="form-control" name="price" placeholder="Enter price">
+         <input type="text" class="form-control" name="price" placeholder="Enter price" required>
         </div>
         </div>
         <br><br>

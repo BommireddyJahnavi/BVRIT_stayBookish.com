@@ -26,6 +26,22 @@
     </style>
     </head>
     <body id="index" style="background-color: #333333;">
+        <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="welcomeView.jsp">Home</a></li>
+        <li><a href="bookView.jsp">Books</a></li>
+        <li><a href="addRecordView.jsp">Sell</a></li>
+       </ul></div></div></nav>
         <div id="p" class="container">
         <h1 id="index"> SIGN UP </h1><br><br>
         <div class="row">
