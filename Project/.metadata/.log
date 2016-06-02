@@ -651,3 +651,55 @@ Caused by: java.net.SocketException: Connection reset
 
 !ENTRY org.eclipse.jst.server.tomcat.core 4 0 2016-06-02 10:05:24.002
 !MESSAGE Several ports (8005, 8080, 8009) required by Tomcat v7.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+!SESSION 2016-06-02 14:11:09.845 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.7.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-06-02 14:11:18.557
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-06-02 14:14:30.256
+!MESSAGE https://github.com/BommireddyJahnavi/BVRIT_stayBookish.com.git: cannot open git-upload-pack
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: https://github.com/BommireddyJahnavi/BVRIT_stayBookish.com.git: cannot open git-upload-pack
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:139)
+	at org.eclipse.jgit.api.PullCommand.call(PullCommand.java:266)
+	at org.eclipse.egit.core.op.PullOperation$1.run(PullOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.egit.core.op.PullOperation.execute(PullOperation.java:137)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI.execute(PullOperationUI.java:140)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI$1.runInWorkspace(PullOperationUI.java:115)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/BommireddyJahnavi/BVRIT_stayBookish.com.git: cannot open git-upload-pack
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:518)
+	at org.eclipse.jgit.transport.TransportHttp.openFetch(TransportHttp.java:296)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:136)
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:122)
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1138)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:130)
+	... 8 more
+Caused by: java.net.UnknownHostException: github.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:637)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:977)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1302)
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:468)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getResponseCode(HttpsURLConnectionImpl.java:338)
+	at org.eclipse.jgit.transport.http.JDKHttpConnection.getResponseCode(JDKHttpConnection.java:98)
+	at org.eclipse.jgit.util.HttpSupport.response(HttpSupport.java:174)
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:469)
+	... 13 more
