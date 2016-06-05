@@ -93,4 +93,14 @@
     <servlet-name>SellController</servlet-name>
     <url-pattern>/sell</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BuyController</display-name>
+    <servlet-name>BuyController</servlet-name>
+    <servlet-class>com.bvrit.StayBookish.controller.BuyController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuyController</servlet-name>
+    <url-pattern>/buy</url-pattern>
+  </servlet-mapping>
 </web-app>
