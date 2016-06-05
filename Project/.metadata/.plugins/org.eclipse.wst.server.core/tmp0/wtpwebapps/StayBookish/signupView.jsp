@@ -40,7 +40,7 @@
       <ul class="nav navbar-nav">
         <li><a href="welcomeView.jsp">Home</a></li>
         <li><a href="bookView.jsp">Books</a></li>
-        <li><a href="addRecordView.jsp">Sell</a></li>
+        <li><a href="sell">Sell</a></li>
        </ul></div></div></nav>
         <div id="p" class="container">
         <h1 id="index"> SIGN UP </h1><br><br>

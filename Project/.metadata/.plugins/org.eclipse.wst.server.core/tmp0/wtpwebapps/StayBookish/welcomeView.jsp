@@ -10,10 +10,10 @@
   <style>
   <% String user = (String)session.getAttribute("user");%>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
+.navbar {
+   margin-bottom: 0;
+   border-radius: 0;
+  }
     
     /* Add a gray background color and some padding to the footer */
     footer {
@@ -24,11 +24,11 @@
   .carousel-inner img {
       width: 100%; /* Set width to 100% */
       margin: auto;
-      min-height:200px;
+      min-height:100px;
   }
 
   /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
+  @media (max-width: 10px) {
     .carousel-caption {
       display: none; 
     }
@@ -48,7 +48,7 @@
     overflow: hidden; /* Clear floats */
 }
 #search{
-    width:550px;
+    width:55px;
     height:40px;
     
     }
@@ -57,15 +57,13 @@
 <body>
 
 
-<div class="jumbotron">
-  <div>
-  <center><img src = "logo.png"></center>
-  </div>
-  <div class="container text-center">
-    <h1>STAY BOOKISH</h1>      
-    <p>You Request We Sell</p>
-  </div>
-</div>
+
+  
+ 
+   <img src = "logo.png" align="left" > <center><h1>STAY BOOKISH </h1></center>      
+ <center><p>You Request We Sell!!!</p></center>
+  
+
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -82,12 +80,13 @@
         <li class="active"><a href="welcomeView.jsp">Home</a></li>
         
         <li><a href="bookView.jsp">Books</a></li>
-        <li><a href="addRecordView.jsp">Sell</a></li>
+        <li><a href="sell">Sell</a></li>
        
       </ul>
        <% if(user != null){ %>
          <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href=" ">Welcome <%=user %></a></li>
+             <li><a href="cartView.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
              <li ><a href="logout.jsp">Logout</a></li>
          </ul>
       <% }else{ %>
@@ -142,5 +141,4 @@
 
 </body>
 </html>
-
 

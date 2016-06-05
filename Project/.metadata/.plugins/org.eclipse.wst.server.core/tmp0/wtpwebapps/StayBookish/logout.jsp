@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-session.removeAttribute("user1");
+session.removeAttribute("user");
 session.invalidate();
 %>
 <jsp:forward page = "loginView.jsp"></jsp:forward>
