@@ -73,14 +73,4 @@
     <filter-name>UserCheckFilter</filter-name>
     <url-pattern>/UserCheckFilter</url-pattern>
   </filter-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AddToCartController</display-name>
-    <servlet-name>AddToCartController</servlet-name>
-    <servlet-class>com.bvrit.StayBookish.controller.AddToCartController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddToCartController</servlet-name>
-    <url-pattern>/addtocart</url-pattern>
-  </servlet-mapping>
 </web-app>

@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Sun Jun 05 19:05:26 IST 2016
+#Sun Jun 05 19:14:07 IST 2016
 org.eclipse.jst.jee.server\:/binary\:/home/ubuntu/Documents/Proj_Repo/BVRIT_stayBookish.com/Project/StayBookish/WebContent/WEB-INF/lib/apache-log4j-2.5-bin/log4j-web-2.5.jar=WEB-INF/lib/apache-log4j-2.5-bin/log4j-web-2.5.jar
 org.eclipse.jst.jee.server\:/binary\:/home/ubuntu/Documents/Proj_Repo/BVRIT_stayBookish.com/Project/StayBookish/WebContent/WEB-INF/lib/apache-log4j-2.5-bin/log4j-web-2.5-sources.jar=WEB-INF/lib/apache-log4j-2.5-bin/log4j-web-2.5-sources.jar
