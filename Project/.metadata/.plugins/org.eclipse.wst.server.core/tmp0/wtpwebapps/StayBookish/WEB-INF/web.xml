@@ -75,6 +75,26 @@
   </filter-mapping>
   <servlet>
     <description></description>
+    <display-name>SellController</display-name>
+    <servlet-name>SellController</servlet-name>
+    <servlet-class>com.bvrit.StayBookish.controller.SellController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SellController</servlet-name>
+    <url-pattern>/sell</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CartController</display-name>
+    <servlet-name>CartController</servlet-name>
+    <servlet-class>com.bvrit.StayBookish.controller.CartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartController</servlet-name>
+    <url-pattern>/servlet/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>AddToCartController</display-name>
     <servlet-name>AddToCartController</servlet-name>
     <servlet-class>com.bvrit.StayBookish.controller.AddToCartController</servlet-class>
@@ -85,13 +105,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>SellController</display-name>
-    <servlet-name>SellController</servlet-name>
-    <servlet-class>com.bvrit.StayBookish.controller.SellController</servlet-class>
+    <display-name>DeleteBookController</display-name>
+    <servlet-name>DeleteBookController</servlet-name>
+    <servlet-class>com.bvrit.StayBookish.controller.DeleteBookController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SellController</servlet-name>
-    <url-pattern>/sell</url-pattern>
+    <servlet-name>DeleteBookController</servlet-name>
+    <url-pattern>/deletebook</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

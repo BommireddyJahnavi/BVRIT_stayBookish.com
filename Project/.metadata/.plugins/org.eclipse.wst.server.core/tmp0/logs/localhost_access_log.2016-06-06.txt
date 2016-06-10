@@ -1,0 +1,11 @@
+127.0.0.1 - - [06/Jun/2016:18:43:30 +0530] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [06/Jun/2016:18:43:31 +0530] "GET /StayBookish/welcomeView.jsp HTTP/1.1" 200 3877
+127.0.0.1 - - [06/Jun/2016:18:43:34 +0530] "GET /StayBookish/logo.png HTTP/1.1" 200 29910
+127.0.0.1 - - [06/Jun/2016:18:47:55 +0530] "GET /StayBookish/sell HTTP/1.1" 302 -
+127.0.0.1 - - [06/Jun/2016:18:47:55 +0530] "GET /StayBookish/loginView.jsp HTTP/1.1" 200 2759
+127.0.0.1 - - [06/Jun/2016:18:49:09 +0530] "GET /StayBookish/bookView.jsp HTTP/1.1" 500 7898
+127.0.0.1 - - [06/Jun/2016:18:50:09 +0530] "POST /StayBookish/login HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2016:19:03:49 +0530] "GET /StayBookish/addRecordView.jsp HTTP/1.1" 200 4342
+127.0.0.1 - - [06/Jun/2016:19:04:18 +0530] "GET /StayBookish/bookView.jsp HTTP/1.1" 500 7898
+127.0.0.1 - - [06/Jun/2016:19:07:10 +0530] "POST /StayBookish/addphoto HTTP/1.1" 200 168
+127.0.0.1 - - [06/Jun/2016:19:10:08 +0530] "POST /StayBookish/addphoto HTTP/1.1" 200 168
