@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {protected void doProcess(HttpS
 		if(result){
 			System.out.println("result");
 			
-			response.sendRedirect("welcomeView.jsp");
+			response.sendRedirect("index.jsp");
 			//request.getAttribute("Invalid login credentials");
 		}else{
 			

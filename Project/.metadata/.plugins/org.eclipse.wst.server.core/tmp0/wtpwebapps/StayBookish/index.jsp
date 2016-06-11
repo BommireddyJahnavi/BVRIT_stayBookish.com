@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ page import="com.bvrit.StayBookish.dao.BookDAO" %>
+<%@page import="com.bvrit.StayBookish.dao.BookPojo"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<% String user = (String)session.getAttribute("user"); %>
+ <%@ page import="com.bvrit.StayBookish.dao.CartDAO" %>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -34,10 +42,22 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+   
+    <script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
 </head>
+<%
 
-<body id="page-top" class="index">
+String message = request.getParameter("msg");
+if(message != null){
+out.print(message);
+}
+%>
+
+<body id="page-top" class="index" >
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -60,11 +80,12 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="bookView.jsp">Books</a>
+                        <a class="page-scroll" href="#bookView">Books</a>
                        
                     </li>
+                    
                     <li>
-                        <a class="page-scroll" href="#portfolio">Sell</a>
+                        <a class="page-scroll" href="#sell">Sell</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
@@ -72,6 +93,9 @@
                     
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                    <a href="#cartView"><span class="page-scroll "></span> Cart</a>
                     </li>
                 </ul>
             </div>
@@ -91,6 +115,178 @@
         </div>
     </header>
 
+   <!-- About Section -->
+    <section id="bookView">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Books</h2>
+                    <h3 class="section-subheading text-muted">Stay Bookish.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                         <div class="table-responsive">
+<table id="myTable" class="table table-striped" width="100%" >
+
+  <thead valign="bottom">
+       <th align="center">Book</th>
+       <th align="center" data-sortable="true">Name</th>
+       <th align="center" data-sortable="true">Author</th>
+       <th align="center" data-sortable="true">Edition</th>
+       <th align="center" data-sortable="true">Publisher</th>
+       <th align="center" data-sortable="true">Course</th>
+       <th data-sortable="true">Price</th>
+       <th data-sortable="true">Status</th>
+       <th data-sortable="true">Quantity</th>
+       <th>Buy</th>
+   </thead>
+   <tbody>
+<% 
+BookDAO rdao = new BookDAO();
+ArrayList<BookPojo> list = rdao.getAllBooks();
+for(BookPojo book : list) {%>
+  <tr valign="top">
+       <td><img width='150' height='200' src=displayphoto?bid=<%=book.getBid()%>></td>
+       <td align="center"><%=book.getBname()%></td>
+       <td align="center"><%=book.getAuthor()%></td>
+       <td align="center"><%=book.getEdition()%></td>
+       <td align="center"><%=book.getPublisher()%></td>
+       <td align="center"><%=book.getYear()%></td>
+       <td align="center"><%=book.getPrice()%></td>
+       <td align="center"><%=book.getStatus()%></td>
+       <td align="center"><%=book.getQuantity()%></td>
+       <td align="center"><a href="buy?bid=<%=book.getBid()%>">Buy</a></td>
+    
+  </tr>
+<% }%>
+ </tbody>
+</table>
+</div>   
+                                
+                        </li>
+                        
+                        
+                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="sell">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    
+                     <div id="p" class="container">
+        <h1 id="index"> SIGN UP </h1><br><br>
+        <div class="row">
+        <form  action="signup" method="post" class="col-md-4 col-md-offset-4">
+        <div class="form-group">
+        <div class="col-md-4">
+        <label for="Name">Username:</label>
+        </div>
+        <div class="col-md-8">
+        <input type="text" class="form-control" name="user" placeholder="Enter name">
+        </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+        <div class="col-md-4">
+        <label for="Password">Password:</label>
+        </div>
+        <div class="col-md-8">
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+        </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+        <div class="col-md-4">
+        <label for="Phone">Phone:</label>
+        </div>
+        <div class="col-md-8">
+        <input type="tel" class="form-control" name="phone" placeholder="Enter phone no." required>
+        </div>
+        </div>
+        <br><br><div class="form-group">
+        <div class="col-md-4">
+        <label for="Email">Email:</label>
+        </div>
+        <div class="col-md-8">
+        <input type="email" class="form-control" name="email" placeholder="Enter email">
+        </div>
+        </div>
+        
+        <br><br>
+        <div class="form-group">
+        <div class="col-md-4">
+        <label for="address">Address:</label>
+        </div>
+        <div class="col-md-8">
+         <input type="text" class="form-control" name="address" placeholder="Enter address">
+        </div>
+        </div>
+        <br><br>
+        <center>
+        <input type="submit" class="btn btn-primary" value="Sign up"></a>
+        <a href="#loginView">Already have an account?Then login</a>
+        </center>
+        </form>
+        </div>
+        </div> 
+                </div>
+            </div>
+           
+        </div>
+    </section>
+    
+<!-- About Section -->
+    <section id="loginView">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    
+                     <div id="p" class="container">
+        <h1 id="index"> LOGIN </h1><br><br>
+        <div class="row">
+        <form  action="login" method="post" class="col-md-4 col-md-offset-4">
+        <div class="form-group">
+        <div class="col-md-4">
+        <label for="Name">Username:</label>
+        </div>
+        <div class="col-md-8">
+        <input type="text" class="form-control" name="user" placeholder="Enter name">
+        </div>
+        </div>
+        <br><br>
+        <div class="form-group">
+        <div class="col-md-4">
+        <label for="Name">Password:</label>
+        </div>
+        <div class="col-md-8">
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
+        </div>
+        </div>
+        <br><br>
+        <center>
+        <input type="submit" class="btn btn-primary" value="Login"></a>
+        <a href="signupView.jsp" class="btn btn-primary">Signup</a><br>
+        <a href="ForgotPasswordView.jsp" class="btn btn-link">Forgot Password</a>
+        </center>
+        </form>
+        </div>
+        </div>                    </div> 
+                </div>
+            </div>
+           
+        </div>
+    </section>
+    
+
+   
    
    
     <!-- About Section -->
@@ -159,7 +355,7 @@ to internet</p>
         </div>
     </section>
 
-   
+    
     <!-- Clients Aside -->
     <aside class="clients">
         <div class="container">
@@ -194,7 +390,7 @@ to internet</p>
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
             <div class="row">
@@ -233,34 +429,92 @@ to internet</p>
         </div>
     </section>
 
-    <footer>
+     <!-- About Section -->
+    <section id="cartView">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
+                <div class="col-lg-12 text-center">
+                    
+                     <div id="p" class="container">
+                     <div class="container">
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+    </div>
+   
+      
+       
+       
+      </div></nav>
+
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:80%">Product</th>
+							<th style="width:30%">Price</th>
+							
+							
+							<th style="width:30%"></th>
+						</tr>
+					</thead>
+				
+					<tbody>
+					<% CartDAO crdao = new CartDAO();
+					
+					int sum = 0;
+                    
+                    for(BookPojo book : list) {%>
+					
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img width='150' height='200' src=displayphoto?bid=<%=book.getBid()%>  alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%= book.getBname() %></h4>
+										<p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Author:<%=book.getAuthor() %>  &nbsp &nbsp Edition:<%=book.getEdition()%><br>
+										&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Publisher:<%=book.getPublisher() %>
+										</p>
+									</div>
+								</div>
+							</td>
+							
+							<td data-th="Price">Rs.<%=book.getPrice() %></td>
+							<%sum = sum + Integer.parseInt(book.getPrice()); %>
+							<td class="actions" data-th="">
+								
+								<a href="deletebook?bid=<%=book.getBid()%>"><button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button></a>								
+							</td>
+						</tr>
+						<%} %>
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total Rs.<%=sum%></strong></td>
+						</tr>
+						<tr>
+							<td><a href="bookView.jsp" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total Rs.<%=sum %></strong></td>
+							<td><a href="paymentView.jsp" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+						
+					</tfoot>
+				</table>
+</div>
+                </div> 
                 </div>
             </div>
+           
         </div>
-    </footer>
-
+    </section>
+  
    
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
